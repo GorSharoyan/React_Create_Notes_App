@@ -1,10 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 
 //UI
 import "./CreateNoteCard.css";
 import { Typography, Card, CardContent, Button } from "@material-ui/core";
 
 export default function CreateNoteCard() {
+  const [heading, setHeading] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleFormSubmit = () => {
+    let note = { heading, description };
+    document.location.reload();
+  };
+
   return (
     <Card className="card">
       <CardContent>
@@ -12,21 +20,35 @@ export default function CreateNoteCard() {
           Make Your Note
         </Typography>
         <div>
-          <div className="input-box">
-            <div className="heading">Heading</div>
-            <div id="heading-input">
-              <input></input>
+          <form onSubmit={handleFormSubmit}>
+            <div className="input-box">
+              <div className="heading">Heading</div>
+              <div id="heading-input">
+                <input
+                  value={heading}
+                  onChange={(e) => {
+                    setHeading(e.target.value);
+                  }}
+                ></input>
+              </div>
             </div>
-          </div>
-          <div className="input-box">
-            <div className="heading">Description</div>
-            <div className="input">
-              <textarea></textarea>
+            <div className="input-box">
+              <div className="heading">Description</div>
+              <div id="description-input">
+                <textarea
+                  value={description}
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                  }}
+                ></textarea>
+              </div>
             </div>
-          </div>
-          <div id="button">
-            <Button variant="contained">Add Note</Button>
-          </div>
+            <div id="button">
+              <Button variant="contained" onClick={handleFormSubmit}>
+                Add Note
+              </Button>
+            </div>
+          </form>
         </div>
       </CardContent>
     </Card>
