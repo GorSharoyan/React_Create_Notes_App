@@ -1,0 +1,27 @@
+.input-box {
+    display: flex;
+    flex-direction:row;
+    align-items: baseline;
+    padding: 10px;
+    text-align: center;
+   
+}
+
+#heading-input {
+    margin-left: 25px;
+}
+
+.input {
+    margin-left: 5px;
+ }
+
+ .card {
+    max-width:500px;
+}
+
+.heading {
+    font-size:medium;
+}
+#button {
+    padding: 5px;
+}
