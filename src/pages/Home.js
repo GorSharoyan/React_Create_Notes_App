@@ -6,13 +6,13 @@ import CreateNoteCard from "../components/CreateNoteCard/CreateNoteCard";
 
 export default function Home() {
   return (
-    <body>
+    <div>
       <div>
         <CreateNoteCard />
       </div>
       <div>
         <NoteCardGenerator />
       </div>
-    </body>
+    </div>
   );
 }

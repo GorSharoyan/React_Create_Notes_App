@@ -1,25 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //Services
-import { getData } from "../services/fetch.service";
+import { getAllData } from "../../services/fetch.service";
 //Components
 import NoteCard from "../NoteCard/NoteCard";
 
 export default function NoteCardGenerator() {
-  //   [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([]);
 
-  //   setNotes(getData());
+  useEffect(() => {
+    getAllData().then((result) => {
+      setNotes(result);
+    });
+  }, []);
 
   return (
     <div>
-      {/* {notes.map((element) => {
-        return (
-          <NoteCard
-            heading={element.heading}
-            description={element.description}
-          />
-        );
-      })} */}
+      {notes.map((element) => {
+        return <NoteCard heading={element.id} />;
+      })}
     </div>
   );
 }
