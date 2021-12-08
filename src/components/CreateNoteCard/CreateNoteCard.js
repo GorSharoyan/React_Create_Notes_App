@@ -4,13 +4,16 @@ import { React, useState } from "react";
 import "./CreateNoteCard.css";
 import { Typography, Card, CardContent, Button } from "@material-ui/core";
 
+//Services
+import postData from "../services/fetch.service";
+
 export default function CreateNoteCard() {
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
 
   const handleFormSubmit = () => {
     let note = { heading, description };
-    document.location.reload();
+    postData(note);
   };
 
   return (
