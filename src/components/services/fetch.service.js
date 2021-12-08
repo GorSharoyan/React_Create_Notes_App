@@ -1,5 +1,5 @@
 //POST-ing data
-const postData = (data) => {
+export const postData = (data) => {
   return fetch("http://localhost:8000/notes", {
     method: "POST",
     headers: { "Content-Type": "applications/json", body: JSON.stringify(data) }
@@ -8,10 +8,8 @@ const postData = (data) => {
   });
 };
 
-export default postData;
-
 //Getting Data
-const getData = (data) => {
+export const getData = (data) => {
   return fetch("http://localhost:8000/notes", {
     method: "GET",
     headers: { "Content-Type": "applications/json", body: JSON.stringify(data) }
@@ -19,5 +17,3 @@ const getData = (data) => {
     console.log("Data Uploaded");
   });
 };
-
-export default getData
