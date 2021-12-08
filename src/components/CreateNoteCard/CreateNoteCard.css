@@ -25,3 +25,7 @@
 #button {
     padding: 5px;
 }
+#error-message {
+    color: red;
+    text-size-adjust: 5px;
+}

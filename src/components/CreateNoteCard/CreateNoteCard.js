@@ -10,13 +10,18 @@ import { postData } from "../../services/fetch.service";
 export default function CreateNoteCard() {
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
+  const [error, setError] = useState(false);
   const [note, setNote] = useState({});
 
   const handleFormSubmit = () => {
-    let note = { heading, description };
-    setNote(note);
-    postData(note);
-    document.location.reload();
+    if (heading || description === "") {
+      setError(true);
+    } else {
+      let note = { heading, description };
+      setNote(note);
+      postData(note);
+      document.location.reload();
+    }
   };
 
   return (
@@ -49,6 +54,11 @@ export default function CreateNoteCard() {
                 ></textarea>
               </div>
             </div>
+            {error ? (
+              <div id="error-message">Please Fill in the fields above</div>
+            ) : (
+              <></>
+            )}
             <div id="button">
               <Button variant="contained" onClick={handleFormSubmit}>
                 Add Note
