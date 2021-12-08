@@ -1,10 +1,7 @@
-import React, from "react";
+import React from "react";
 
 //UI
 import { Card, CardContent, Typography, Button } from "@material-ui/core";
-
-//Services
-import { getData } from "../services/fetch.service";
 
 export default function NoteCard({ heading, description }) {
   return (

@@ -1,13 +1,13 @@
 import "./App.css";
 
-//components
-import CreateNoteCard from "./components/CreateNoteCard/CreateNoteCard";
+//pages
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <CreateNoteCard />
+        <Home />
       </header>
     </div>
   );

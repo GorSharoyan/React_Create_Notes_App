@@ -6,20 +6,20 @@ import { getData } from "../services/fetch.service";
 import NoteCard from "../NoteCard/NoteCard";
 
 export default function NoteCardGenerator() {
-  [notes, setNotes] = useState([]);
+  //   [notes, setNotes] = useState([]);
 
-  setNotes(getData());
+  //   setNotes(getData());
 
   return (
     <div>
-      {notes.map((element) => {
+      {/* {notes.map((element) => {
         return (
           <NoteCard
             heading={element.heading}
             description={element.description}
           />
         );
-      })}
+      })} */}
     </div>
   );
 }
