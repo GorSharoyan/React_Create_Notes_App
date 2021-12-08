@@ -1,11 +1,12 @@
 import React from "react";
 
 //UI
+import "./NoteCard.css";
 import { Card, CardContent, Typography, Button } from "@material-ui/core";
 
 export default function NoteCard({ heading, description }) {
   return (
-    <Card>
+    <Card className="note-card">
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {heading}
