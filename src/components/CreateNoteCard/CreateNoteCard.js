@@ -14,14 +14,14 @@ export default function CreateNoteCard() {
   const [note, setNote] = useState({});
 
   const handleFormSubmit = () => {
-    if (heading || description === "") {
-      setError(true);
-    } else {
-      let note = { heading, description };
-      setNote(note);
-      postData(note);
-      document.location.reload();
-    }
+    // if (heading || description === "") {
+    //   setError(true);
+    // } else {
+    let note = { heading, description };
+    setNote(note);
+    postData(note);
+    // document.location.reload();
+    // }
   };
 
   return (

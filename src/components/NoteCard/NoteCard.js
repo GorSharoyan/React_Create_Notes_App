@@ -4,7 +4,7 @@ import React from "react";
 import "./NoteCard.css";
 import { Card, CardContent, Typography, Button } from "@material-ui/core";
 
-export default function NoteCard({ heading, description }) {
+export default function NoteCard({ heading, description, handleDeleteNote }) {
   return (
     <Card className="note-card">
       <CardContent>
@@ -14,7 +14,7 @@ export default function NoteCard({ heading, description }) {
         <div>
           <div>{description}</div>
           <div>
-            <Button>Delete Note</Button>
+            <button onClick={handleDeleteNote}>Delete Note</button>
           </div>
           <div>
             <Button>Edit Note</Button>
