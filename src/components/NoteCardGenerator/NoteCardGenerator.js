@@ -8,6 +8,7 @@ import NoteCard from "../NoteCard/NoteCard";
 
 export default function NoteCardGenerator() {
   const [notes, setNotes] = useState([]);
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     getAllData().then((result) => {
@@ -20,13 +21,20 @@ export default function NoteCardGenerator() {
     setNotes(newNotes);
   };
 
+  const handelEditNote = () => {
+    console.log("click");
+  };
+
   return (
     <div>
       {notes.map((element) => {
         return (
           <ul key={element.id}>
             <NoteCard
-              heading={element.id}
+              note={element}
+              handleEditNote={() => {
+                handelEditNote();
+              }}
               handleDeleteNote={() => {
                 handleDeleteNote(element.id);
               }}
