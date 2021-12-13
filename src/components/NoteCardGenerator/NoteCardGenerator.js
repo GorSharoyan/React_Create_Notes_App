@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 //Services
-import { getAllData, postData } from "../../services/fetch.service";
+import { getAllData } from "../../services/firebase.servie";
 
 //Components
 import NoteCard from "../NoteCard/NoteCard";
