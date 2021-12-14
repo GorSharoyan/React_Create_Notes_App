@@ -5,7 +5,7 @@ import "./CreateNoteCard.css";
 import { Typography, Card, CardContent, Button } from "@material-ui/core";
 
 //Services
-import { postData } from "../../services/fetch.service";
+import { createData } from "../../services/firebase.servie";
 
 export default function CreateNoteCard() {
   const [heading, setHeading] = useState("");
@@ -19,7 +19,7 @@ export default function CreateNoteCard() {
     // } else {
     let note = { heading, description };
     setNote(note);
-    postData(note);
+    createData("/Notes", note, 3);
     // document.location.reload();
     // }
   };

@@ -27,7 +27,7 @@ export default function NoteCardGenerator() {
 
   return (
     <div>
-      {notes.map((element) => {
+      {/* {notes.map((element) => {
         return (
           <ul key={element.id}>
             <NoteCard
@@ -41,7 +41,7 @@ export default function NoteCardGenerator() {
             />
           </ul>
         );
-      })}
+      })} */}
     </div>
   );
 }

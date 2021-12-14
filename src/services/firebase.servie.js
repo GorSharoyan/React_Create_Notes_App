@@ -1,7 +1,6 @@
-import firebase, { database } from "../libraries/firebase";
+import database from "../libraries/firebase";
 
-//Getting Data Generic
-
+//GET DATA
 export function getAllData(path) {
   return database
     .ref(path)
@@ -11,9 +10,7 @@ export function getAllData(path) {
     });
 }
 
-//Posting Data
-
-//function for creating data and  sending to firebase
+//POST DATA
 export function createData(path, data, uid) {
   return database.ref(path + uid).set(data);
 }
