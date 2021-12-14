@@ -19,7 +19,7 @@ export default function CreateNoteCard() {
     // } else {
     let note = { heading, description };
     setNote(note);
-    createData("/Notes", note, 3);
+    createData("/Notes", note, 4);
     // document.location.reload();
     // }
   };

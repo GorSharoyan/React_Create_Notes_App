@@ -12,8 +12,10 @@ export default function NoteCardGenerator() {
 
   useEffect(() => {
     getAllData().then((result) => {
-      setNotes(result);
+      let parsedValues = Object.values(result);
+      setNotes(parsedValues);
     });
+    console.log(notes);
   }, []);
 
   const handleDeleteNote = (id) => {
@@ -27,7 +29,7 @@ export default function NoteCardGenerator() {
 
   return (
     <div>
-      {/* {notes.map((element) => {
+      {notes.map((element) => {
         return (
           <ul key={element.id}>
             <NoteCard
@@ -41,7 +43,7 @@ export default function NoteCardGenerator() {
             />
           </ul>
         );
-      })} */}
+      })}
     </div>
   );
 }
