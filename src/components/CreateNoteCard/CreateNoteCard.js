@@ -6,6 +6,7 @@ import { Typography, Card, CardContent, Button } from "@material-ui/core";
 
 //Services
 import { createData } from "../../services/firebase.servie";
+import { genreateRandomID } from "../../services/generateRandomID.service";
 
 export default function CreateNoteCard() {
   const [heading, setHeading] = useState("");
@@ -17,9 +18,12 @@ export default function CreateNoteCard() {
     // if (heading || description === "") {
     //   setError(true);
     // } else {
-    let note = { heading, description };
+
+    const note = { heading, description };
+    const randomId = genreateRandomID();
+    console.log(randomId);
     setNote(note);
-    createData("/Notes", note, 4);
+    createData("/Notes", note, randomId);
     // document.location.reload();
     // }
   };
