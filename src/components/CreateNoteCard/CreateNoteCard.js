@@ -18,12 +18,10 @@ export default function CreateNoteCard() {
     // if (heading || description === "") {
     //   setError(true);
     // } else {
-
-    const note = { heading, description };
-    const randomId = genreateRandomID();
-    console.log(randomId);
+    const id = genreateRandomID();
+    const note = { id, heading, description };
     setNote(note);
-    createData("/Notes", note, randomId);
+    createData("/Notes", note, id);
     // document.location.reload();
     // }
   };
