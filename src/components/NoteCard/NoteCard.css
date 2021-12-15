@@ -2,3 +2,12 @@
     margin-top: 25px;
     border-radius: 25px;
 }
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.note-input {
+    margin: 5px;
+    padding:5px
+}

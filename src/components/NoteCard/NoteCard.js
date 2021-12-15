@@ -7,17 +7,40 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import CreateIcon from "@mui/icons-material/Create";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 
-export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
+//Services
+import { updateData } from "../../services/firebase.servie";
+
+export default function NoteCard({ note }) {
   const [edit, setEdit] = useState(false);
-  const [input, setInput] = useState("");
+  const [headingInput, setHeadingInput] = useState("");
+  const [descriptionInput, setDescriptionInput] = useState("");
+  // const [editedValue, setEditedValue] = useState("");
 
   const handleEditToggle = () => {
     setEdit(true);
   };
 
-  const handleInputChange = (event) => {
-    setInput(event.target.value);
+  const handleHeadingInputChange = (event) => {
+    setHeadingInput(event.target.value);
   };
+  const handleDescriptionInputChange = (event) => {
+    setDescriptionInput(event.target.value);
+  };
+
+  const handleEditNote = () => {
+    const editedNote = { heading: headingInput, description: descriptionInput };
+    updateData(note.id, editedNote);
+    document.location.reload();
+  };
+
+  // const handleDeleteNote = (id) => {
+  //   const newNotes = notes.filter((note) => note.id !== id);
+  //   setNotes(newNotes);
+  // };
+
+  // const handelEditNote = () => {
+  //   console.log("click");
+  // };
 
   return (
     <Card className="note-card">
@@ -28,7 +51,7 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
         <div>
           <div style={{ fontSize: "15px" }}>{note.description}</div>
           <div>
-            <Button onClick={handleDeleteNote}>
+            <Button>
               Delete Note <DeleteForeverIcon></DeleteForeverIcon>
             </Button>
           </div>
@@ -39,8 +62,18 @@ export default function NoteCard({ note, handleDeleteNote, handleEditNote }) {
               </Button>
             </div>
           ) : (
-            <div>
-              <input placeholder={note.id} onChange={handleInputChange}></input>
+            <div className="edit-form">
+              <input
+                className="note-input"
+                placeholder={note.heading}
+                onChange={handleHeadingInputChange}
+              ></input>
+
+              <textarea
+                className="note-input"
+                placeholder={note.description}
+                onChange={handleDescriptionInputChange}
+              ></textarea>
               <Button onClick={handleEditNote}>
                 Submit<DoneOutlineIcon></DoneOutlineIcon>
               </Button>
