@@ -14,7 +14,7 @@ export default function NoteCardGenerator() {
       let parsedValues = Object.values(result);
       setNotes(parsedValues);
     });
-  }, []);
+  }, [notes]);
 
   return (
     <div>

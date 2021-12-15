@@ -14,7 +14,6 @@ export default function NoteCard({ note }) {
   const [edit, setEdit] = useState(false);
   const [headingInput, setHeadingInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
-  // const [editedValue, setEditedValue] = useState("");
 
   const handleEditToggle = () => {
     setEdit(true);
@@ -30,6 +29,11 @@ export default function NoteCard({ note }) {
   const handleEditNote = () => {
     const editedNote = { heading: headingInput, description: descriptionInput };
     updateData(note.id, editedNote);
+    document.location.reload();
+  };
+
+  const handleDeleteNote = () => {
+    updateData(note.id, null);
     document.location.reload();
   };
 
@@ -51,7 +55,7 @@ export default function NoteCard({ note }) {
         <div>
           <div style={{ fontSize: "15px" }}>{note.description}</div>
           <div>
-            <Button>
+            <Button onClick={handleDeleteNote}>
               Delete Note <DeleteForeverIcon></DeleteForeverIcon>
             </Button>
           </div>
